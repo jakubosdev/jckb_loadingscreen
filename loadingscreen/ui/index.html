@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="screen-wrapper">
+        <svg class="shape" xmlns="http://www.w3.org/2000/svg" viewBox="0 -5 572.55 504.05">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill: none;
+                        stroke: url(#linear);
+                        filter: drop-shadow(0 0 2px #ff2929);
+                        stop-color: #ff4f4f;
+                    }
+                </style>
+                <linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="transparent" />
+                    <stop offset="50%" stop-color="#4fff8455" />
+                    <stop offset="100%" stop-color="transparent" />
+                </linearGradient>
+            </defs>
+            <path class="cls-1"
+                d="M259.47,15.47L4.19,457.63c-11.91,20.63,2.98,46.42,26.8,46.42h510.57c23.82,0,38.71-25.79,26.8-46.42L313.07,15.47c-11.91-20.63-41.69-20.63-53.6,0Z" />
+            <path class="cls-1"
+                d="M260.39,206.78L108.47,446.55c-13.05,20.6,1.75,47.51,26.14,47.51H438.45c24.39,0,39.19-26.9,26.14-47.51l-151.92-239.77c-12.15-19.18-40.13-19.18-52.28,0h0Z" />
+            <path class="cls-1"
+                d="M275.37,244.99l-128.47,202.74c-5.43,8.57,.73,19.77,10.88,19.77H414.71c10.15,0,16.31-11.2,10.88-19.77l-128.47-202.74c-5.06-7.98-16.7-7.98-21.76,0h.01Z" />
+        </svg>
+        <div class="items">
+            <img src="./img/pvplogo.png" alt="">
+            <div class="text">
+                <h1 id="greet"></h1>
+            </div>
+        </div>
+        <div class="sideglows">
+            <div class="glow"></div>
+            <div class="glow"></div>
+        </div>
+        <div class="veil"></div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script>
+
+        window.addEventListener('message', ({ data }) => {
+            if (data.eventName == "gameReady") {
+                gsap.to(".screen-wrapper", {
+                    opacity: 0,
+                    duration: 2.5
+                })
+                gsap.to(".items", {
+                    x: "110vw",
+                    opacity: 0,
+                    duration: 2.5
+                })
+                gsap.to(".shape", {
+                    scale: 2.5,
+                    opacity: 0,
+                    duration: 1,
+                })
+            }
+        })
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('#greet').innerText = ``;
+        });
+    </script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
